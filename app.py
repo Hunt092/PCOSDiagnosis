@@ -11,9 +11,11 @@ def index():
     if request.method == "GET":
         return render_template("index.html")
     # Get the data from the POST request.
-    data = request.form
+    data = [x for x in request.form.values()]
+
     # Make prediction using model loaded from disk as per the data.
     print(data)
+    return render_template("index.html")
 
 
 if __name__ == "__main__":

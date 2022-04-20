@@ -27,168 +27,310 @@
 				<ul></ul>
 			</nav>
 		</header>
-		<body>
-			<main>
-				<form action="\" method="post">
+		<main>
+			<form action="\" method="post">
+				<div class="form-group">
+					<input required type="number" name="Age" placeholder="yrs" required />
+					<label for="Age">Age(yrs)</label>
+				</div>
+				<div class="form-group">
+					<input
+						required
+						type="number"
+						name="Weigth"
+						placeholder="Kg"
+						required
+						id="vajan"
+						onblur="calIBM"
+					/>
+					<label for="Weigth">Weigth(Kg)</label>
+				</div>
+				<div class="form-group">
+					<input
+						required
+						type="number"
+						name="Heigth"
+						placeholder="kg"
+						required
+						id="uunchi"
+						onblur="calIBM"
+					/>
+					<label for="Heigth">Heigth(cms)</label>
+				</div>
+				<div class="form-group">
+					<input
+						required
+						type="number"
+						name="BMI"
+						placeholder="yrs"
+						readonly
+						id="IBM"
+					/>
+					<label for="BMI">BMI</label>
+				</div>
+				<div class="form-group">
+					<select name="blood" id="" value="">
+						<option value="">A+</option>
+						<option value="">A-</option>
+						<option value="">B+</option>
+						<option value="">B-</option>
+						<option value="">AB+</option>
+						<option value="">AB-</option>
+						<option value="">O+</option>
+						<option value="">O-</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="PulseRate" placeholder="bpm" />
+					<label for="PulseRate">Pulse Rate(bpm)</label>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="Hb" placeholder="yrs" />
+					<label for="Hb">Hb(g/dl)</label>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="Cycle" placeholder="yrs" />
+					<label for="Cycle">Cycle(R/I)</label>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="Cycle-length" placeholder="yrs" />
+					<label for="Cycle-length">Cycle length(day)</label>
+				</div>
+				<div class="form-group">
+					<input
+						required
+						type="number"
+						name="Marital-Status"
+						placeholder="yrs"
+					/>
+					<label for="Marital-Status">Marraige Status (Yrs)</label>
+				</div>
+				<div class="form-group">
+					<label for="Pregagante">Have you been Pregnant?</label>
+					<input
+						required
+						type="radio"
+						name="Pregagante"
+						id="Pregagante"
+						value="Yes"
+					/>
+					<label for="Pregagante">Yes</label>
+					<input
+						required
+						type="radio"
+						name="Pregagante"
+						id="Pregagante"
+						value="No"
+					/>
+					<label for="Pregagante">No</label>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="aborptions" />
+					<label for="aborptions">No. of aborptions</label>
+				</div>
+				<div class="form-group">
+					<input
+						required
+						type="number"
+						name="Hip"
+						id="HIP"
+						onblur="calHipHopratio"
+					/>
+					<label for="Hip">Hip size (inch)</label>
+				</div>
+				<div class="form-group">
+					<input
+						required
+						type="number"
+						name="Waist"
+						id="HOP"
+						onblur="calHipHopratio"
+					/>
+					<label for="Waist">Waist (inch)</label>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="Ratio" readonly id="ratio" />
+					<label for="Ratio">Hip:Waist Ratio</label>
+				</div>
+				<div class="form-group">
+					<label for="weightGain">Weight Gain</label>
+					<input
+						required
+						type="radio"
+						name="weightGain"
+						id="weightGain"
+						value="Yes"
+					/>
+					<label for="weightGain">Yes</label>
+					<input
+						required
+						type="radio"
+						name="weightGain"
+						id="weightGain"
+						value="No"
+					/>
+					<label for="weightGain">No</label>
+				</div>
+				<div class="form-group">
+					<label for="hairGrowth">Hair Growth</label>
+					<input
+						required
+						type="radio"
+						name="hairGrowth"
+						id="hairGrowth"
+						value="Yes"
+					/>
+					<label for="hairGrowth">Yes</label>
+					<input
+						required
+						type="radio"
+						name="hairGrowth"
+						id="hairGrowth"
+						value="No"
+					/>
+					<label for="hairGrowth">No</label>
+				</div>
+				<div class="form-group">
+					<label for="darkening">Skin Darkening</label>
+					<input
+						required
+						type="radio"
+						name="darkening"
+						id="darkening"
+						value="Yes"
+					/>
+					<label for="darkening">Yes</label>
+					<input
+						required
+						type="radio"
+						name="darkening"
+						id="darkening"
+						value="No"
+					/>
+					<label for="darkening">No</label>
+				</div>
+				<div class="form-group">
+					<label for="hairLoss">Hair Loss</label>
+					<input
+						required
+						type="radio"
+						name="hairLoss"
+						id="hairLoss"
+						value="Yes"
+					/>
+					<label for="hairLoss">Yes</label>
+					<input
+						required
+						type="radio"
+						name="hairLoss"
+						id="hairLoss"
+						value="No"
+					/>
+					<label for="hairLoss">No</label>
+				</div>
+				<div class="form-group">
+					<label for="pimples">Pimples</label>
+					<input
+						required
+						type="radio"
+						name="pimples"
+						id="pimples"
+						value="Yes"
+					/>
+					<label for="pimples">Yes</label>
+					<input required type="radio" name="pimples" id="pimples" value="No" />
+					<label for="pimples">No</label>
+				</div>
+				<div class="form-group">
+					<label for="fastfood">Fast Food</label>
+					<input
+						required
+						type="radio"
+						name="fastfood"
+						id="fastfood"
+						value="Yes"
+					/>
+					<label for="fastfood">Yes</label>
+					<input
+						required
+						type="radio"
+						name="fastfood"
+						id="fastfood"
+						value="No"
+					/>
+					<label for="fastfood">No</label>
+				</div>
+				<div class="form-group">
+					<label for="exercise">Regular Exercise</label>
+					<input
+						required
+						type="radio"
+						name="exercise"
+						id="exercise"
+						value="Yes"
+					/>
+					<label for="exercise">Yes</label>
+					<input
+						required
+						type="radio"
+						name="exercise"
+						id="exercise"
+						value="No"
+					/>
+					<label for="exercise">No</label>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="SystolicBP" />
+					<label for="SystolicBP">Systolic Blood Pressure(mmHg)</label>
+				</div>
+				<div class="form-group">
+					<input required type="number" name="DiastolicBP" />
+					<label for="DiastolicBP">Diastolic Blood Pressure(mmHg)</label>
+				</div>
+				<div class="form-group">
+					Follicle Numbers
 					<div class="form-group">
-						<input type="number" name="Age" placeholder="yrs" required />
-						<label for="Age">Age(yrs)</label>
+						<input required type="number" name="FollicleL" />
+						<label for="FollicleL">Left</label>
 					</div>
 					<div class="form-group">
-						<input
-							type="number"
-							name="Weigth"
-							placeholder="Kg"
-							required
-							id="vajan"
-						/>
-						<label for="Weigth">Weigth(Kg)</label>
+						<input required type="number" name="FollicleR" />
+						<label for="FollicleR">Right</label>
 					</div>
-					<div class="form-group">
-						<input
-							type="number"
-							name="Heigth"
-							placeholder="kg"
-							required
-							id="uunchi"
-						/>
-						<label for="Heigth">Heigth(cms)</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="BMI" placeholder="yrs" readonly />
-						<label for="BMI">BMI</label>
-					</div>
-					<div class="form-group">
-						<select name="blood" id="" value="">
-							<option value="">A+</option>
-							<option value="">A-</option>
-							<option value="">B+</option>
-							<option value="">B-</option>
-							<option value="">AB+</option>
-							<option value="">AB-</option>
-							<option value="">O+</option>
-							<option value="">O-</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<input type="number" name="PulseRate" placeholder="bpm" />
-						<label for="PulseRate">Pulse Rate(bpm)</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="Hb" placeholder="yrs" />
-						<label for="Hb">Hb(g/dl)</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="Cycle" placeholder="yrs" />
-						<label for="Cycle">Cycle(R/I)</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="Cycle-length" placeholder="yrs" />
-						<label for="Cycle-length">Cycle length(day)</label>
-					</div>
-					<div class="form-group">
-						<input
-							type="number"
-							name="Marital-Status"
-							placeholder="yrs"
-							readonly
-						/>
-						<label for="Marital-Status">Marraige Status (Yrs)</label>
-					</div>
-					<div class="form-group">
-						<label for="Pregagante">Have you been Pregnant?</label>
-						<input type="radio" name="Pregagante" id="Pregagante" value="Yes" />
-						<label for="Pregagante">Yes</label>
-						<input type="radio" name="Pregagante" id="Pregagante" value="No" />
-						<label for="Pregagante">No</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="aborptions" />
-						<label for="aborptions">No. of aborptions</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="Hip" id="HIP" />
-						<label for="Hip">Hip size (inch)</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="Waist" id="HOP" />
-						<label for="Waist">Waist (inch)</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="Ratio" readonly id="ratio" />
-						<label for="Ratio">Hip:Waist Ratio</label>
-					</div>
-					<div class="form-group">
-						<label for="weightGain">Weight Gain</label>
-						<input type="radio" name="weightGain" id="weightGain" value="Yes" />
-						<label for="weightGain">Yes</label>
-						<input type="radio" name="weightGain" id="weightGain" value="No" />
-						<label for="weightGain">No</label>
-					</div>
-					<div class="form-group">
-						<label for="hairGrowth">Hair Growth</label>
-						<input type="radio" name="hairGrowth" id="hairGrowth" value="Yes" />
-						<label for="hairGrowth">Yes</label>
-						<input type="radio" name="hairGrowth" id="hairGrowth" value="No" />
-						<label for="hairGrowth">No</label>
-					</div>
-					<div class="form-group">
-						<label for="darkening">Skin Darkening</label>
-						<input type="radio" name="darkening" id="darkening" value="Yes" />
-						<label for="darkening">Yes</label>
-						<input type="radio" name="darkening" id="darkening" value="No" />
-						<label for="darkening">No</label>
-					</div>
-					<div class="form-group">
-						<label for="hairLoss">Hair Loss</label>
-						<input type="radio" name="hairLoss" id="hairLoss" value="Yes" />
-						<label for="hairLoss">Yes</label>
-						<input type="radio" name="hairLoss" id="hairLoss" value="No" />
-						<label for="hairLoss">No</label>
-					</div>
-					<div class="form-group">
-						<label for="pimples">Pimples</label>
-						<input type="radio" name="pimples" id="pimples" value="Yes" />
-						<label for="pimples">Yes</label>
-						<input type="radio" name="pimples" id="pimples" value="No" />
-						<label for="pimples">No</label>
-					</div>
-					<div class="form-group">
-						<label for="fastfood">Fast Food</label>
-						<input type="radio" name="fastfood" id="fastfood" value="Yes" />
-						<label for="fastfood">Yes</label>
-						<input type="radio" name="fastfood" id="fastfood" value="No" />
-						<label for="fastfood">No</label>
-					</div>
-					<div class="form-group">
-						<label for="exercise">Regular Exercise</label>
-						<input type="radio" name="exercise" id="exercise" value="Yes" />
-						<label for="exercise">Yes</label>
-						<input type="radio" name="exercise" id="exercise" value="No" />
-						<label for="exercise">No</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="SystolicBP" />
-						<label for="SystolicBP">Systolic Blood Pressure(mmHg)</label>
-					</div>
-					<div class="form-group">
-						<input type="number" name="DiastolicBP" />
-						<label for="DiastolicBP">Diastolic Blood Pressure(mmHg)</label>
-					</div>
-					<div class="form-group">
-						Follicle Numbers
-						<div class="form-group">
-							<input type="number" name="FollicleL" />
-							<label for="FollicleL">Left</label>
-						</div>
-						<div class="form-group">
-							<input type="number" name="FollicleR" />
-							<label for="FollicleR">Right</label>
-						</div>
-					</div>
-					<button>Submit</button>
-				</form>
-			</main>
-		</body>
+				</div>
+				<button>Submit</button>
+			</form>
+		</main>
+		<script>
+			const uunchidiv = document.getElementById("uunchi");
+			const vajandiv = document.getElementById("vajan");
+			const ibm = document.getElementById("IBM");
+			function calIBM() {
+				let vajan = vajandiv.value ? vajandiv.value : 0;
+				let uunchi = uunchidiv.value ? uunchidiv.value : 0;
+				if (uunchi !== 0 && vajan !== 0) {
+					bmi = vajan / uunchi ** 2;
+					ibm.value = bmi;
+				}
+			}
+
+			uunchidiv.addEventListener("blur", calIBM);
+			vajandiv.addEventListener("blur", calIBM);
+
+			const hipdiv = document.getElementById("HIP");
+			const hopdiv = document.getElementById("HOP");
+			const ratio = document.getElementById("ratio");
+			function calHipHopratio() {
+				const hip = hipdiv.value ? hipdiv.value : 0;
+				const hop = hopdiv.value ? hopdiv.value : 0;
+				console.log(hip, hop);
+				if (hip !== 0 && hop !== 0) {
+					ratioval = hip / hop;
+					ratio.value = ratioval;
+				}
+			}
+			hipdiv.addEventListener("blur", calHipHopratio);
+			hopdiv.addEventListener("blur", calHipHopratio);
+		</script>
 	</body>
 </html>
