@@ -25,17 +25,13 @@ def index():
         return render_template("index.html")
     # Get the data from the POST request.
     data = [x for x in request.form.values()]
-    print(request.form)
     numarray = np.array(data).reshape(1, -1)
     # Make prediction using model loaded from disk as per the data.
-    print(numarray)
     answer = model.predict(numarray)
-    print(answer)
-    output = answer[0]
-    # if answer[0] == 1.0:
-    #     output = True
-    # else:
-    #     output = False
+    if answer[0] == 1.0:
+        output = True
+    else:
+        output = False
     return render_template("index.html", output=output)
 
 
