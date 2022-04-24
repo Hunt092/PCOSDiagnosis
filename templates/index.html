@@ -22,7 +22,7 @@
 	</head>
 	<body>
 		<header class="header">
-			<h1>PCOS Diagnosis</h1>
+			<h1>PCOS Diagnosis Portal</h1>
 			<nav class="">
 				<ul></ul>
 			</nav>
@@ -44,7 +44,7 @@
 					<div class="form-group">
 						<input
 							required
-							type="number"
+							type="text"
 							name="Weigth"
 							placeholder="Kg"
 							required
@@ -56,7 +56,7 @@
 					<div class="form-group">
 						<input
 							required
-							type="number"
+							type="text"
 							name="Heigth"
 							placeholder="kg"
 							required
@@ -93,12 +93,15 @@
 						<label for="PulseRate">Pulse Rate(bpm)</label>
 					</div>
 					<div class="form-group">
-						<input required type="number" name="Hb" placeholder="yrs" />
+						<input required type="text" name="Hb" placeholder="yrs" />
 						<label for="Hb">Hb(g/dl)</label>
 					</div>
 					<div class="form-group">
-						<input required type="number" name="Cycle" placeholder="yrs" />
 						<label for="Cycle">Cycle(R/I)</label>
+						<input required type="radio" name="Cycle" id="Cycler" value="2" />
+						<label for="Cycler">Regular</label>
+						<input required type="radio" name="Cycle" id="Cyclei" value="4" />
+						<label for="cyclei">Irregular</label>
 					</div>
 					<div class="form-group">
 						<input
@@ -319,8 +322,10 @@
 					</div>
 					<button>Submit</button>
 				</form>
-				{%endif%}
 			</div>
+			{%endif%}
+
+			<div class="infographics">HELLO WORLD</div>
 		</main>
 		<script>
 			const uunchidiv = document.getElementById("uunchi");
@@ -329,8 +334,10 @@
 			function calIBM() {
 				let vajan = vajandiv.value ? vajandiv.value : 0;
 				let uunchi = uunchidiv.value ? uunchidiv.value : 0;
+				uunchi = uunchi / 100;
+				uuchisquar = uunchi ** 2;
 				if (uunchi !== 0 && vajan !== 0) {
-					bmi = vajan / uunchi ** 2;
+					bmi = vajan / uuchisquar;
 					ibm.value = bmi;
 				}
 			}

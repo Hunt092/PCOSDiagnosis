@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-model = pickle.load(open("bigboymodel.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 
 
 def seletect(x):
@@ -25,14 +25,17 @@ def index():
         return render_template("index.html")
     # Get the data from the POST request.
     data = [x for x in request.form.values()]
+    print(request.form)
     numarray = np.array(data).reshape(1, -1)
     # Make prediction using model loaded from disk as per the data.
+    print(numarray)
     answer = model.predict(numarray)
-
-    if answer[0]:
-        output = True
-    else:
-        output = False
+    print(answer)
+    output = answer[0]
+    # if answer[0] == 1.0:
+    #     output = True
+    # else:
+    #     output = False
     return render_template("index.html", output=output)
 
 
