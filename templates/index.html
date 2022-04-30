@@ -17,6 +17,10 @@
 			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 			crossorigin="anonymous"
 		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+			crossorigin="anonymous"
+		></script>
 		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
 		<title>Document</title>
 	</head>
@@ -28,10 +32,88 @@
 			</nav>
 		</header>
 		<main>
-			<div class="charts">
-				
+			{%if output%}
+			<div class="resultwrapper">
+				<div class="result bg-white rounded-start p-3">
+					<h1>
+						{%if output== True%} You have been Diagnosised with PCOS {%else%}
+						You haven't been Diagnosised with PCOS {% endif %}
+					</h1>
+				</div>
+				<div class="infographics">
+					<div>
+						<h3>Dietary advice</h3>
+						<h4>A healthful PCOS diet can also include the following foods:</h4>
+						<ol>
+							<li>natural, unprocessed foods</li>
+							<li>high-fiber foods</li>
+							<li>
+								fatty fish, including salmon, tuna, sardines, and mackerel kale,
+								spinach, and other dark, leafy greens
+							</li>
+							<li>
+								dark red fruits, such as red grapes, blueberries, blackberries,
+								and cherries
+							</li>
+							<li>dried beans, lentils, and other legumes</li>
+							<li>
+								healthful fats, such as olive oil, as well as avocados and
+								coconuts
+							</li>
+							<li>
+								nuts, including pine nuts, walnuts, almonds, and pistachios
+							</li>
+							<li>dark chocolate in moderation</li>
+							<li>spices, such as turmeric and cinnamon</li>
+							<li>broccoli and cauliflower</li>
+						</ol>
+					</div>
+					<div>
+						<h3>Lifestyle and home remedies</h3>
+						<h4>To help decrease the effects of PCOS, try to:</h4>
+						<ol>
+							<li>
+								Maintain a healthy weight. Weight loss can reduce insulin and
+								androgen levels and may restore ovulation. Ask your doctor about
+								a weight-control program, and meet regularly with a dietitian
+								for help in reaching weight-loss goals.
+							</li>
+							<li>
+								Limit carbohydrates. Low-fat, high-carbohydrate diets might
+								increase insulin levels. Ask your doctor about a
+								low-carbohydrate diet if you have PCOS. Choose complex
+								carbohydrates, which raise your blood sugar levels more slowly.
+							</li>
+							<li>
+								Be active. Exercise helps lower blood sugar levels. If you have
+								PCOS, increasing your daily activity and participating in a
+								regular exercise program may treat or even prevent insulin
+								resistance and help you keep your weight under control and avoid
+								developing diabetes.
+							</li>
+						</ol>
+					</div>
+				</div>
 			</div>
-			{%if output%} {{output}} {%else%}
+
+			{%else%}
+			<div class="charts">
+				<div class="flex-row gap-5">
+					<canvas
+						class="bg-white my-4"
+						id="myChart"
+						width="45%"
+						height="25vh"
+					></canvas>
+					<canvas
+						class="bg-white my-4"
+						id="myChart2"
+						width="45%"
+						height="25vh"
+					></canvas>
+				</div>
+			</div>
+
 			<div class="form-wrapper">
 				<form action="\" method="post">
 					<div class="form-group">
@@ -419,8 +501,6 @@
 				</form>
 			</div>
 			{%endif%}
-
-			<div class="infographics">HELLO WORLD</div>
 		</main>
 		<script>
 			const uunchidiv = document.getElementById("uunchi");
@@ -454,6 +534,246 @@
 			}
 			hipdiv.addEventListener("blur", calHipHopratio);
 			hopdiv.addEventListener("blur", calHipHopratio);
+		</script>
+
+		<script>
+			const ctx = document.getElementById("myChart");
+			const ctx2 = document.getElementById("myChart2");
+
+			const datapoint = [
+				{ x: 33.0, y: 5.0 },
+				{ x: 25.0, y: 2.0 },
+				{ x: 30.0, y: 7.0 },
+				{ x: 34.0, y: 5.0 },
+				{ x: 30.0, y: 3.0 },
+				{ x: 28.0, y: 3.0 },
+				{ x: 34.0, y: 4.0 },
+				{ x: 29.0, y: 7.0 },
+				{ x: 28.0, y: 5.0 },
+				{ x: 27.0, y: 3.0 },
+				{ x: 23.0, y: 10.0 },
+				{ x: 31.0, y: 4.0 },
+				{ x: 32.0, y: 5.0 },
+				{ x: 35.0, y: 5.0 },
+				{ x: 34.0, y: 5.0 },
+				{ x: 32.0, y: 11.0 },
+				{ x: 22.0, y: 2.0 },
+				{ x: 22.0, y: 5.0 },
+				{ x: 28.0, y: 5.0 },
+				{ x: 31.0, y: 12.0 },
+				{ x: 38.0, y: 2.0 },
+				{ x: 25.0, y: 5.0 },
+				{ x: 27.0, y: 8.0 },
+				{ x: 24.0, y: 9.0 },
+				{ x: 32.0, y: 9.0 },
+				{ x: 29.0, y: 5.0 },
+				{ x: 28.0, y: 9.0 },
+				{ x: 22.0, y: 5.0 },
+				{ x: 23.0, y: 5.0 },
+				{ x: 26.0, y: 5.0 },
+				{ x: 24.0, y: 2.0 },
+				{ x: 22.0, y: 5.0 },
+				{ x: 28.0, y: 5.0 },
+				{ x: 28.0, y: 5.0 },
+				{ x: 30.0, y: 11.0 },
+				{ x: 23.0, y: 2.0 },
+				{ x: 28.0, y: 2.0 },
+				{ x: 29.0, y: 4.0 },
+				{ x: 31.0, y: 5.0 },
+				{ x: 29.0, y: 4.0 },
+				{ x: 25.0, y: 4.0 },
+				{ x: 23.0, y: 4.0 },
+				{ x: 29.0, y: 6.0 },
+				{ x: 30.0, y: 4.0 },
+				{ x: 33.0, y: 5.0 },
+				{ x: 29.0, y: 4.0 },
+				{ x: 35.0, y: 5.0 },
+				{ x: 27.0, y: 4.0 },
+				{ x: 28.0, y: 4.0 },
+				{ x: 24.0, y: 4.0 },
+				{ x: 37.0, y: 5.0 },
+				{ x: 30.0, y: 4.0 },
+				{ x: 32.0, y: 5.0 },
+				{ x: 23.0, y: 4.0 },
+				{ x: 29.0, y: 3.0 },
+				{ x: 35.0, y: 4.0 },
+				{ x: 35.0, y: 4.0 },
+				{ x: 25.0, y: 3.0 },
+				{ x: 23.0, y: 4.0 },
+				{ x: 28.0, y: 5.0 },
+				{ x: 24.0, y: 4.0 },
+				{ x: 35.0, y: 4.0 },
+				{ x: 32.0, y: 5.0 },
+				{ x: 39.0, y: 4.0 },
+				{ x: 26.0, y: 5.0 },
+				{ x: 36.0, y: 5.0 },
+				{ x: 34.0, y: 4.0 },
+				{ x: 31.0, y: 3.0 },
+				{ x: 27.0, y: 5.0 },
+				{ x: 29.0, y: 6.0 },
+				{ x: 40.0, y: 5.0 },
+				{ x: 35.0, y: 4.0 },
+				{ x: 25.0, y: 3.0 },
+				{ x: 24.0, y: 5.0 },
+				{ x: 29.0, y: 6.0 },
+				{ x: 39.0, y: 6.0 },
+				{ x: 23.0, y: 4.0 },
+				{ x: 24.0, y: 5.0 },
+				{ x: 33.0, y: 5.0 },
+				{ x: 45.0, y: 4.0 },
+				{ x: 47.0, y: 4.0 },
+				{ x: 31.0, y: 5.0 },
+				{ x: 28.0, y: 6.0 },
+				{ x: 26.0, y: 4.0 },
+				{ x: 27.0, y: 5.0 },
+				{ x: 36.0, y: 4.0 },
+				{ x: 29.0, y: 5.0 },
+				{ x: 45.0, y: 4.0 },
+				{ x: 38.0, y: 4.0 },
+				{ x: 29.0, y: 5.0 },
+				{ x: 27.0, y: 6.0 },
+				{ x: 27.0, y: 5.0 },
+				{ x: 28.0, y: 5.0 },
+				{ x: 30.0, y: 5.0 },
+				{ x: 40.0, y: 5.0 },
+				{ x: 25.0, y: 5.0 },
+				{ x: 41.0, y: 5.0 },
+				{ x: 33.0, y: 5.0 },
+				{ x: 24.0, y: 3.0 },
+				{ x: 30.0, y: 2.0 },
+				{ x: 28.0, y: 5.0 },
+				{ x: 34.0, y: 6.0 },
+				{ x: 33.0, y: 5.0 },
+				{ x: 37.0, y: 2.0 },
+				{ x: 30.0, y: 2.0 },
+				{ x: 21.0, y: 3.0 },
+				{ x: 36.0, y: 3.0 },
+				{ x: 31.0, y: 2.0 },
+				{ x: 26.0, y: 2.0 },
+				{ x: 26.0, y: 5.0 },
+				{ x: 32.0, y: 5.0 },
+				{ x: 28.0, y: 2.0 },
+				{ x: 36.0, y: 2.0 },
+				{ x: 27.0, y: 6.0 },
+				{ x: 32.0, y: 3.0 },
+				{ x: 23.0, y: 2.0 },
+				{ x: 22.0, y: 3.0 },
+				{ x: 28.0, y: 6.0 },
+				{ x: 29.0, y: 3.0 },
+				{ x: 27.0, y: 4.0 },
+				{ x: 24.0, y: 5.0 },
+				{ x: 28.0, y: 2.0 },
+				{ x: 27.0, y: 5.0 },
+				{ x: 29.0, y: 3.0 },
+				{ x: 36.0, y: 4.0 },
+				{ x: 28.0, y: 3.0 },
+				{ x: 27.0, y: 5.0 },
+				{ x: 23.0, y: 5.0 },
+				{ x: 30.0, y: 4.0 },
+				{ x: 31.0, y: 2.0 },
+				{ x: 27.0, y: 4.0 },
+				{ x: 25.0, y: 5.0 },
+				{ x: 38.0, y: 2.0 },
+				{ x: 37.0, y: 3.0 },
+				{ x: 32.0, y: 2.0 },
+				{ x: 28.0, y: 6.0 },
+				{ x: 33.0, y: 5.0 },
+				{ x: 25.0, y: 3.0 },
+				{ x: 23.0, y: 5.0 },
+				{ x: 32.0, y: 3.0 },
+				{ x: 33.0, y: 2.0 },
+				{ x: 34.0, y: 5.0 },
+				{ x: 39.0, y: 7.0 },
+				{ x: 27.0, y: 5.0 },
+				{ x: 26.0, y: 2.0 },
+				{ x: 47.0, y: 7.0 },
+				{ x: 33.0, y: 2.0 },
+				{ x: 34.0, y: 5.0 },
+				{ x: 30.0, y: 4.0 },
+				{ x: 31.0, y: 5.0 },
+				{ x: 35.0, y: 5.0 },
+				{ x: 35.0, y: 5.0 },
+				{ x: 32.0, y: 5.0 },
+				{ x: 31.0, y: 6.0 },
+				{ x: 31.0, y: 2.0 },
+				{ x: 36.0, y: 7.0 },
+				{ x: 33.0, y: 7.0 },
+				{ x: 34.0, y: 7.0 },
+				{ x: 32.0, y: 2.0 },
+				{ x: 25.0, y: 5.0 },
+				{ x: 34.0, y: 7.0 },
+				{ x: 31.0, y: 5.0 },
+				{ x: 26.0, y: 5.0 },
+				{ x: 31.0, y: 4.0 },
+				{ x: 42.0, y: 7.0 },
+				{ x: 33.0, y: 2.0 },
+				{ x: 30.0, y: 2.0 },
+				{ x: 28.0, y: 4.0 },
+				{ x: 30.0, y: 4.0 },
+				{ x: 27.0, y: 2.0 },
+				{ x: 46.0, y: 4.0 },
+				{ x: 23.0, y: 7.0 },
+				{ x: 27.0, y: 2.0 },
+				{ x: 36.0, y: 7.0 },
+				{ x: 27.0, y: 5.0 },
+				{ x: 26.0, y: 7.0 },
+				{ x: 23.0, y: 7.0 },
+			];
+			const myChart = new Chart(ctx, {
+				type: "scatter",
+				data: {
+					datasets: [
+						{
+							label: "PCOS",
+							data: datapoint.slice(0, 50),
+							backgroundColor: "rgba(180, 0, 0,0.45)",
+						},
+					],
+				},
+
+				options: {
+					responsive: true,
+					plugins: {
+						legend: {
+							position: "bottom",
+						},
+						title: {
+							display: true,
+							text: "Age vs Cycle Length(days)",
+						},
+					},
+				},
+			});
+			const agearaay = [];
+			datapoint.slice(0, 50).forEach((element) => {
+				console.log(element);
+				agearaay.shift(element.x);
+			});
+			const myChart2 = new Chart(ctx2, {
+				type: "line",
+				data: {
+					datasets: [
+						{
+							label: "My First Dataset",
+							data: datapoint,
+							borderColor: "rgb(75, 192, 192)",
+						},
+					],
+				},
+
+				options: {
+					responsive: true,
+					plugins: {
+						legend: {
+							position: "bottom",
+						},
+						title: {
+							display: true,
+							text: "Age vs Cycle Length(days)",
+						},
+					},
+				},
+			});
 		</script>
 	</body>
 </html>
